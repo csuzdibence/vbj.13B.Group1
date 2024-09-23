@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VBJ.13B.Group1.OOPGyakorlo1\VBJ.13B.Group1.OOPGyakorlo1.csproj" />
+  </ItemGroup>
+
 </Project>
