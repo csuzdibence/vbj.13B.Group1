@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>VBJ._13B.Group1.Console</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>false</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
