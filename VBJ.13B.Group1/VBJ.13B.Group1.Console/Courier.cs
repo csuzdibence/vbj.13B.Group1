@@ -12,7 +12,6 @@ namespace VBJ._13B.Group1.Console
         // Field/ mező - mint egy lokális változó -> mindig private
         // Staticból csak egy van, bármennyi Couriert hozol létre
         private static int idIndex = 1;
-        private static Random rnd = new Random();
 
         private List<Package> packages;
 
@@ -38,11 +37,20 @@ namespace VBJ._13B.Group1.Console
         // Immutable -> nem megváltoztatható a program során
         public string Name { get; }
 
+        // Kívülről fogjuk változtatni
+        public int MaxPackageCount { get; set; }
+
         // Csomagfelvétel, a futár felvesz egy csomagot.
         // Visszatérési érték -> sikerült-e felvenni a csomagot.
+        // Amennyiben elértük a maximum csomag számot
         public bool PickUpPackage(Package package)
         {
             var packageCount = packages.Count;
+
+            if (packageCount >= MaxPackageCount)
+            {
+                return false;
+            }
 
             packages.Add(package);
             return true;
