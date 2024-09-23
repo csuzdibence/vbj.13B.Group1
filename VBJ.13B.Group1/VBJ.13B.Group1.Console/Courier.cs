@@ -55,5 +55,10 @@ namespace VBJ._13B.Group1.Console
             packages.Add(package);
             return true;
         }
+
+        public void ClearPackages()
+        {
+            packages.Clear();
+        }
     }
 }

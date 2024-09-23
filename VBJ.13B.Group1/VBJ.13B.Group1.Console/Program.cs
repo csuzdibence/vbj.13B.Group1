@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
 using System.Threading;
 using VBJ._13B.Group1.Console;
 
@@ -25,18 +24,19 @@ public class Program
         {
             int randomNameIndex = rnd.Next(0, names.Length);
             var courier = new Courier(names[randomNameIndex]);
-            courier.MaxPackageCount = rnd.Next(10, 17);
+            courier.MaxPackageCount = rnd.Next(4, 8);
             couriers.Add(courier);
         }
 
 
         // Szimuláció
         DateTime today = DateTime.Now;
-        today = StartSimulation(today, couriers);
+        today = StartSimulationForAYear(today, couriers);
     }
 
     // Method extraction -> metódus kiemelés, metódus név kijelölés majd Alt+Enter
-    private static DateTime StartSimulation(DateTime today, List<Courier> couriers)
+    // Újrafelhasználható legyen a funkció
+    private static DateTime StartSimulationForAYear(DateTime today, List<Courier> couriers)
     {
         // i változó, adott napot
         for (int i = 0; i < 365; i++)
@@ -49,19 +49,10 @@ public class Program
             var packages = PreparePackages();
 
             // futárok kiviszik a csomagokat
-            foreach (var package in packages)
-            {
-                foreach (var courier in couriers)
-                {
-                    if (!courier.PickUpPackage(package))
-                    {
-                        continue;
-                    }
-                    Console.WriteLine($"{package.ID} csomag ki lett szállítva.");
-                    break;
-                }
-            }
+            DeliverPackages(couriers, packages);
 
+            // Kitöröljük a csomagjait a futároknak
+            ClearAllPackages(couriers);
 
             today = today.AddDays(1);
             // két másodpercenként telik el egy nap
@@ -72,14 +63,40 @@ public class Program
         return today;
     }
 
+    private static void ClearAllPackages(List<Courier> couriers)
+    {
+        foreach (var courier in couriers)
+        {
+            courier.ClearPackages();
+        }
+    }
+
+    private static void DeliverPackages(List<Courier> couriers, List<Package> packages)
+    {
+        foreach (var package in packages)
+        {
+            foreach (var courier in couriers)
+            {
+                if (!courier.PickUpPackage(package))
+                {
+                    continue;
+                }
+                Console.WriteLine($"\t\t{package.ID} csomag ki lett szállítva {courier.Name} által.");
+                break;
+            }
+            Thread.Sleep(200);
+        }
+    }
+
     private static List<Package> PreparePackages()
     {
-        int packageSum = rnd.Next(40, 81);
+        int packageSum = rnd.Next(24, 32);
         List<Package> allPackages = new List<Package>();
         for (int j = 0; j < packageSum; j++)
         {
-            allPackages.Add(new Package());
-            Console.WriteLine($"\t{j + 1}. csomag előkészítve");
+            var package = new Package();
+            allPackages.Add(package);
+            Console.WriteLine($"\t{package.ID}. csomag előkészítve");
             Thread.Sleep(50);
         }
         return allPackages;
