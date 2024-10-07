@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using VBJ._13B.Group1.WebApp.Models;
+using System.Diagnostics.Eventing.Reader;
 
 namespace VBJ._13B.Group1.WebApp.Controllers
 {
+    // MVC Controller -> : Controller - >Controller osztály (ASP fejlesztõk írták) leszármazottja
+    // õs osztály -> minden protected és public tagot elérünk
     public class HomeController : Controller
     {
+        // Home View-k közötti, Index.cshtml-t adja vissza
+        // Metódus megköti a View nevét
         public IActionResult Index()
         {
             return View();
@@ -14,12 +17,6 @@ namespace VBJ._13B.Group1.WebApp.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
