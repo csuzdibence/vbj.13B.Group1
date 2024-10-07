@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Calculator";
+}
+
+@* Form *@
+@using (Html.BeginForm("Add", "Calculator", FormMethod.Post))
+{
+    // első input
+    <label for="number1">Első szám:</label>
+    <input type="text" name="number1" />
+
+    // második input
+    <label for="number2">Második szám:</label>
+    <input type="text" name="number2" />
+
+    // submit
+    <input type="submit" />
+}
+
+@* Ha van eredmény, akkor írassuk ki *@
+@if (ViewBag.Result != null)
+{
+    <p>A művelet eredménye @ViewBag.Result</p>
+}

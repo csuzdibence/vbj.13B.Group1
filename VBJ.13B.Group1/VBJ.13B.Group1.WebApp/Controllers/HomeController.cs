@@ -5,6 +5,8 @@ namespace VBJ._13B.Group1.WebApp.Controllers
 {
     // MVC Controller -> : Controller - >Controller osztály (ASP fejlesztõk írták) leszármazottja
     // õs osztály -> minden protected és public tagot elérünk
+
+    // localhost:{valamilyenPort}/ -> root
     public class HomeController : Controller
     {
         // Home View-k közötti, Index.cshtml-t adja vissza
