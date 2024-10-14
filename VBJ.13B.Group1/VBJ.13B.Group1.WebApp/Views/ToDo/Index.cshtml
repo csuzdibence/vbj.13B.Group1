@@ -31,8 +31,8 @@
                 {
                     <td>Nem készült el</td>
                 }
-                <td><a href="@Url.Action("Edit")">Szerkesztés</a></td>
-                <td><a href="@Url.Action("Delete")">Törlés</a></td>
+                <td><a href="@Url.Action("Edit", new { id = item.ID })">Szerkesztés</a></td>
+                <td><a href="@Url.Action("Delete", new { id = item.ID})">Törlés</a></td>
             </tr>
         }
     </tbody>

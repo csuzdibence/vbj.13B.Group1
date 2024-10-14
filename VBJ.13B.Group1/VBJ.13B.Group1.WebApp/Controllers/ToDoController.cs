@@ -49,13 +49,38 @@ namespace VBJ._13B.Group1.WebApp.Controllers
         }
 
         // /ToDo/Edit
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            ToDoItem editedItem = toDoItems.FirstOrDefault(x => x.ID == id);
+            return View(editedItem);
         }
 
-        public IActionResult Delete() 
+        public IActionResult Delete(int id) 
         {
+            var deletedItem = toDoItems.FirstOrDefault(x => x.ID == id);
+            if (deletedItem != null)
+            {
+                toDoItems.Remove(deletedItem);
+            }
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult AddToDo(ToDoItem item)
+        {
+            item.ID = toDoItems.Any() ? toDoItems.Last().ID + 1 : 1;
+            toDoItems.Add(item);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult EditToDo(ToDoItem item)
+        {
+            ToDoItem editedItem = toDoItems.FirstOrDefault(x => x.ID == item.ID);
+            if (editedItem != null)
+            {
+                editedItem.Title = item.Title;
+                editedItem.IsCompleted = item.IsCompleted;
+            }
+
             return RedirectToAction("Index");
         }
     }
