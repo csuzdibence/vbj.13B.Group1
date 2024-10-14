@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table th, table td {
+    margin: 20px;
+}

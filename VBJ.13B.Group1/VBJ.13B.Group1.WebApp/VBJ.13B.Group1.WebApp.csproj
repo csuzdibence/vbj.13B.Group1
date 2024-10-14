@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\VBJ.13B.Group1.OOPGyakorlo1\VBJ.13B.Group1.OOPGyakorlo1.csproj" />
   </ItemGroup>
 
 </Project>

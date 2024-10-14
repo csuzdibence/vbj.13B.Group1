@@ -1,0 +1,39 @@
+﻿@using VBJ._13B.Group1.WebApp.Models
+
+@* Megadja előre milyen típusú modellel fogunk dolgozni *@
+@model List<ToDoItem>
+
+@{
+    ViewData["Title"] = "ToDo feladat";
+}
+
+<a href="@Url.Action("Create")">Hozz létre egy új tennivalót!</a>
+
+<table>
+    <thead>
+        <th>Azonosító</th>
+        <th>Cím</th>
+    <th>Elkészült-e</th>
+    <th>Szerkesztés</th>
+    <th>Törlés</th>
+    </thead>
+    <tbody>
+        @foreach (ToDoItem item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Title</td>
+                @if (item.IsCompleted)
+                {
+                    <td>Elkészült</td>
+                }
+                else
+                {
+                    <td>Nem készült el</td>
+                }
+                <td><a href="@Url.Action("Edit")">Szerkesztés</a></td>
+                <td><a href="@Url.Action("Delete")">Törlés</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
