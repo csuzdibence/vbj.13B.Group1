@@ -10,7 +10,7 @@
 
 ### StudentWebApp
 
-MVC feladatsor negyedik feladatának megoldása, szintén egy ASP.NET MVC applikáció azonban csak az említett tartalmazza.
+MVC feladatsor negyedik feladatának megoldása, szintén egy ASP.NET MVC applikáció azonban csak az említett feladatot tartalmazza.
 
 ### VBJ.13B.Group1.WebApp
 Az első ASP.NET MVC web applikációnk. Mindenféle példafeladat van benne, például Hello World, **Egyszerű Calculator**, **ToDo lista**
