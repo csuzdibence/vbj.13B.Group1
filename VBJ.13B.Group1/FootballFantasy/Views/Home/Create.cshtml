@@ -1,0 +1,11 @@
+﻿@model Team
+@{
+}
+<h1>Csapat létrehozása nézet</h1>
+
+@using (@Html.BeginForm("CreateTeam", "Home"))
+{
+    <label>Csapat neve:</label>
+    @Html.TextBoxFor(team => team.Name)
+    <input type="submit" />
+}

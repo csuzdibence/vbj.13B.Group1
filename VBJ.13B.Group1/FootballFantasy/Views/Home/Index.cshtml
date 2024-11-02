@@ -1,0 +1,33 @@
+﻿@model List<Team>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Főoldal - Football Fantasy</h1>
+
+<a href="@Url.Action("Create")">Új csapat létrehozása</a>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Azonosító</th>
+                <th>Csapat neve</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model)
+            {
+                <tr>
+                    <td>@team.ID</td>
+                    <td><a href="@Url.Action("Index", "Team", new { id = @team.ID })">@team.Name</a></td>
+                    <td><a href="@Url.Action("Delete", new { id = @team.ID })">Törlés</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

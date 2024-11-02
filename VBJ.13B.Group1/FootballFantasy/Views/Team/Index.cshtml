@@ -1,0 +1,42 @@
+﻿@model Team
+
+@{
+}
+
+<h1>@Model.Name csapat</h1>
+
+@if (Model.Players.Count < 11)
+{
+
+    <a href="@Url.Action("Create", new { id = Model.ID })">Új játékos</a>
+}
+else
+{
+    <h2 class="text-danger">A csapat betelt</h2>    
+}
+
+@if (Model.Players.Any())
+{
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Azonosító</th>
+                <th>Keresztnév</th>
+                <th>Családnév</th>
+                <th>Mezszám</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model.Players)
+            {
+                <tr>
+                    <td>@player.ID</td>
+                    <td>@player.FirstName</td>
+                    <td>@player.LastName</td>
+                    <td>@player.JerseyNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
