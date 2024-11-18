@@ -29,5 +29,10 @@
         /// Ez a property az email címet adja meg
         /// </summary>
         public string EmailAddress { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id};{FirstName};{LastName};{EmailAddress};{DateOfRegistry}";
+        }
     }
 }
