@@ -23,7 +23,7 @@
             {
                 if (value <= 0 || value >= 100)
                 {
-                    throw new Exception("A mezszám csak 1 és 100 közötti lehet!");
+                    throw new Exception("A mezszám csak 1 és 99 közötti lehet!");
                 }
 
                 jerseyNumber = value;

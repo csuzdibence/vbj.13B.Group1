@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 17
+# Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VBJ.13B.Group1.Console", "VBJ.13B.Group1.Console\VBJ.13B.Group1.Console.csproj", "{45E8B429-62E9-4014-9177-D1F52A56F03D}"
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VBJ.13B.Group1.WebApp", "VB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentWebApp", "StudentWebApp\StudentWebApp.csproj", "{1634AF1C-BD72-4B61-A19E-DC905D940BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballFantasy", "FootballFantasy\FootballFantasy.csproj", "{E0875F6D-D190-4632-AEBB-469709F5C696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballFantasy", "FootballFantasy\FootballFantasy.csproj", "{E0875F6D-D190-4632-AEBB-469709F5C696}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Students.Model", "Students.Model\Students.Model.csproj", "{995349B4-D339-45B1-A525-BFDB45B4DE3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{E0875F6D-D190-4632-AEBB-469709F5C696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0875F6D-D190-4632-AEBB-469709F5C696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0875F6D-D190-4632-AEBB-469709F5C696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

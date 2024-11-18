@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StudentWebApp.Models;
+using Students.Model;
 
 namespace StudentWebApp.Controllers
 {
@@ -7,14 +7,20 @@ namespace StudentWebApp.Controllers
     /// Controller a tanulókhoz kapcsolódó végpontokhoz
     /// </summary>
     public class StudentController : Controller
-    {
-        // FONTOS, ha nem static nem működik hiszen EGY listát használunk a futás során nem N-t (!!!)
-        private static List<Student> students = new List<Student>();
+    {        
+        IStudentManager studentManager;
+
+        // Dependency Injection / Konstruktor Injection
+        public StudentController(IStudentManager studentManager)
+        {
+            // Itt fogja megkapni, hogy mégis hogyan fog viselkedni
+            this.studentManager = studentManager;
+        }
 
         // Root végpont -> /Student
         public IActionResult Index()
         {
-            return View(students);
+            return View(studentManager.ReadStudents());
         }
 
         // /Student/Register nézet
@@ -26,18 +32,20 @@ namespace StudentWebApp.Controllers
         // RegisterStudent action -> beszúrunk a listába egy új studentet amit a formról kaptunk
         public IActionResult RegisterStudent(Student student)
         {
+            var students = studentManager.ReadStudents();
             student.Id = students.Any() ? students.Last().Id + 1 : 1;
             student.DateOfRegistry = DateTime.Now;
-            students.Add(student);
+            studentManager.Add(student);
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
+            var students = studentManager.ReadStudents();
             Student foundStudent = students.FirstOrDefault(x => x.Id == id);
             if (foundStudent != null)
             {
-                students.Remove(foundStudent);
+                studentManager.RemoveStudent(foundStudent);
             }
             return RedirectToAction("Index");
         }

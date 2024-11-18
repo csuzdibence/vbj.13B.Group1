@@ -1,7 +1,13 @@
+using Students.Model;
+using System.ComponentModel.DataAnnotations.Schema;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Regisztrálja az osztályt az interface-hez
+builder.Services.AddSingleton<IStudentManager, JsonStudentManager>();
 
 var app = builder.Build();
 

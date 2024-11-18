@@ -1,4 +1,4 @@
-﻿namespace StudentWebApp.Models
+﻿namespace Students.Model
 {
     /// <summary>
     /// Ez az osztály egy tanulót reprezentál.
