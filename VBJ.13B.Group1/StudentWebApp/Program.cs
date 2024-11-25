@@ -1,4 +1,6 @@
 using Students.Model;
+using Students.Model.Implementations.Validations;
+using Students.Model.Interfaces;
 using System.ComponentModel.DataAnnotations.Schema;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Regisztrálja az osztályt az interface-hez
+// IoC container - Inversion of Control
+// Kívülrõl megadtuk hogy Jsonbe kezelje a program a studenteket
 builder.Services.AddSingleton<IStudentManager, JsonStudentManager>();
+builder.Services.AddSingleton<IStudentValidator, NameLengthValidator>();
+builder.Services.AddSingleton<IStudentValidator, EmailDomainValidator>();
+builder.Services.AddSingleton<IStudentValidator, RecentRegistryValidator>();
+builder.Services.AddSingleton<IEverythingValidator, EverythingValidator>();
 
 var app = builder.Build();
 

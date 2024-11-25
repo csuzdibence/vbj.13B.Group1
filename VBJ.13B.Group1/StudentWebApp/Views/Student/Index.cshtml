@@ -21,10 +21,11 @@
     <tbody>
         @foreach (Student student in Model)
         {
+            string textCssClass = student.IsValid ? "success" : "danger";
             <tr>
                 <td>@student.Id</td>
-                <td>@student.LastName</td>
-                <td>@student.FirstName</td>
+                <td class="text-@textCssClass">@student.LastName</td>
+                <td class="text-@textCssClass">@student.FirstName</td>
                 <td>@student.DateOfRegistry</td>
                 <td>@student.EmailAddress</td>
                 <td><a href="@Url.Action("Delete", new { id = student.Id })">Törlés</a></td>

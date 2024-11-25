@@ -30,9 +30,14 @@
         /// </summary>
         public string EmailAddress { get; set; }
 
+        /// <summary>
+        /// Ez a property azt állítja, hogy az adott tanulónak valid vagy nem valid az információja
+        /// </summary>
+        public bool IsValid { get; set; }
+
         public override string ToString()
         {
-            return $"{Id};{FirstName};{LastName};{EmailAddress};{DateOfRegistry}";
+            return $"{Id};{FirstName};{LastName};{EmailAddress};{DateOfRegistry};{IsValid}";
         }
     }
 }

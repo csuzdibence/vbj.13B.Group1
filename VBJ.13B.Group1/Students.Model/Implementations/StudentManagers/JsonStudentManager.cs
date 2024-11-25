@@ -1,4 +1,5 @@
-﻿
+﻿using Students.Model.Implementations.Validations;
+using Students.Model.Interfaces;
 using System.Text.Json;
 
 namespace Students.Model
@@ -6,6 +7,12 @@ namespace Students.Model
     public class JsonStudentManager : IStudentManager
     {
         private const string studentFileName = "students.json";
+        private IEverythingValidator studentValidator;
+
+        public JsonStudentManager(IEverythingValidator studentValidator)
+        {
+            this.studentValidator = studentValidator;
+        }
 
         public void Add(Student student)
         {
@@ -20,7 +27,12 @@ namespace Students.Model
             try
             {
                 string jsonFile = File.ReadAllText(studentFileName);
-                return JsonSerializer.Deserialize<List<Student>>(jsonFile);
+                var students = JsonSerializer.Deserialize<List<Student>>(jsonFile);
+                foreach (var student in students)
+                {
+                    student.IsValid = studentValidator.ValidateStudent(student);
+                }
+                return students;
             }
             catch (FileNotFoundException)
             {

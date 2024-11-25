@@ -27,7 +27,8 @@ namespace Students.Model
                         FirstName = data[1],
                         LastName = data[2],
                         EmailAddress = data[3],
-                        DateOfRegistry = DateTime.Parse(data[4])
+                        DateOfRegistry = DateTime.Parse(data[4]),
+                        IsValid = bool.Parse(data[5])
                     });
                 };
             }

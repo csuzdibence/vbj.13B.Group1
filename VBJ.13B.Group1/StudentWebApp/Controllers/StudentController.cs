@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Students.Model;
+using Students.Model.Implementations.Validations;
+using Students.Model.Interfaces;
 
 namespace StudentWebApp.Controllers
 {
@@ -9,11 +11,12 @@ namespace StudentWebApp.Controllers
     public class StudentController : Controller
     {        
         IStudentManager studentManager;
+        IEverythingValidator studentValidator;
 
         // Dependency Injection / Konstruktor Injection
-        public StudentController(IStudentManager studentManager)
+        public StudentController(IStudentManager studentManager, IEverythingValidator studentValidator)
         {
-            // Itt fogja megkapni, hogy mégis hogyan fog viselkedni
+            this.studentValidator = studentValidator;
             this.studentManager = studentManager;
         }
 
@@ -35,6 +38,7 @@ namespace StudentWebApp.Controllers
             var students = studentManager.ReadStudents();
             student.Id = students.Any() ? students.Last().Id + 1 : 1;
             student.DateOfRegistry = DateTime.Now;
+            student.IsValid = studentValidator.ValidateStudent(student);
             studentManager.Add(student);
             return RedirectToAction("Index");
         }
