@@ -37,6 +37,7 @@ namespace StudentWebApp.Controllers
         {
             var students = studentManager.ReadStudents();
             student.Id = students.Any() ? students.Last().Id + 1 : 1;
+            student.Password = student.Id.ToString();
             student.DateOfRegistry = DateTime.Now;
             student.IsValid = studentValidator.ValidateStudent(student);
             studentManager.Add(student);

@@ -1,4 +1,5 @@
 using Students.Model;
+using Students.Model.Implementations.StudentManagers;
 using Students.Model.Implementations.Validations;
 using Students.Model.Interfaces;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +12,10 @@ builder.Services.AddControllersWithViews();
 // Regisztrálja az osztályt az interface-hez
 // IoC container - Inversion of Control
 // Kívülrõl megadtuk hogy Jsonbe kezelje a program a studenteket
-builder.Services.AddSingleton<IStudentManager, JsonStudentManager>();
+
+builder.Services.AddDbContext<StudentDbContext>();
+
+builder.Services.AddScoped<IStudentManager, DatabaseStudentManager>();
 builder.Services.AddSingleton<IStudentValidator, NameLengthValidator>();
 builder.Services.AddSingleton<IStudentValidator, EmailDomainValidator>();
 builder.Services.AddSingleton<IStudentValidator, RecentRegistryValidator>();
