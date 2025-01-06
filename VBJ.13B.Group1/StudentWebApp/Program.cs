@@ -16,6 +16,21 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<StudentDbContext>();
 
+// Session regisztráció
+builder.Services.AddSession(options => 
+{
+    // Itt lehet megadni mennyi idõ után járjon le
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// HttpAccessor regisztrálás -> Session eléréshez kell
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<IEncryptService, SHA256EncryptService>();
+
 builder.Services.AddScoped<IStudentManager, DatabaseStudentManager>();
 builder.Services.AddScoped<ITeacherManager, DatabaseTeacherManager>();
 builder.Services.AddSingleton<IStudentValidator, NameLengthValidator>();
@@ -37,6 +52,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Meg kell hívni ha az applikációban szeretnénk a sessiont használni
+app.UseSession();
 
 app.UseAuthorization();
 
