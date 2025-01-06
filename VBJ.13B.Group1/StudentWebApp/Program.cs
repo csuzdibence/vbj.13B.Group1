@@ -1,4 +1,5 @@
 using Students.Model;
+using Students.Model.Implementations;
 using Students.Model.Implementations.StudentManagers;
 using Students.Model.Implementations.Validations;
 using Students.Model.Interfaces;
@@ -16,6 +17,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentDbContext>();
 
 builder.Services.AddScoped<IStudentManager, DatabaseStudentManager>();
+builder.Services.AddScoped<ITeacherManager, DatabaseTeacherManager>();
 builder.Services.AddSingleton<IStudentValidator, NameLengthValidator>();
 builder.Services.AddSingleton<IStudentValidator, EmailDomainValidator>();
 builder.Services.AddSingleton<IStudentValidator, RecentRegistryValidator>();
