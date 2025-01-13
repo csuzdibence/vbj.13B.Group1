@@ -9,6 +9,6 @@
         bool TryLogIn(string email, string password);
 
         // Ez egy olyan tulajdonság, ami megmondja, hogy authentikálva vagyunk-e
-        bool IsAuthenticated { get; }
+        bool IsLoggedIn { get; }
     }
 }

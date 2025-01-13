@@ -18,8 +18,14 @@ namespace StudentWebApp.Controllers
             this.authenticationService = authenticationService;
         }
 
+        // /Teacher - root oldal
         public IActionResult Index()
         {
+            if (!authenticationService.IsLoggedIn)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -31,6 +37,12 @@ namespace StudentWebApp.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+
+        public IActionResult Logout()
+        {
+            authenticationService.LogOut();
+            return RedirectToAction("Index");
         }
 
         // Login form beküldése során hívódik meg

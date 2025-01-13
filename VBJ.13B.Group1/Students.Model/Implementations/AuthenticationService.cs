@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Students.Model.Interfaces;
+using System.Text;
 
 namespace Students.Model.Implementations
 {
@@ -16,7 +17,7 @@ namespace Students.Model.Implementations
             this.encryptService = encryptService;
         }
 
-        public bool IsAuthenticated => 
+        public bool IsLoggedIn => 
             httpContextAccessor.HttpContext.Session.TryGetValue("email", out byte[] value);
 
         public void LogOut()
@@ -49,6 +50,9 @@ namespace Students.Model.Implementations
                 // Ha a Sessionben létezik egy email cím
                 return false;
             }
+
+            // itt már biztosan sikerült a bejelentkezés
+            httpContextAccessor.HttpContext.Session.Set("email", Encoding.UTF8.GetBytes(email));
 
             return true;
         }
