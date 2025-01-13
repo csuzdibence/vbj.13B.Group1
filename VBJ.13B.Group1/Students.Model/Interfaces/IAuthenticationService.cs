@@ -5,6 +5,11 @@
         // Kijelentkezés
         void LogOut();
 
+        /// <summary>
+        /// Email address amivel bejelentkeztünk.
+        /// </summary>
+        string EmailAddress { get; }
+
         // Bejelentkezés
         bool TryLogIn(string email, string password);
 

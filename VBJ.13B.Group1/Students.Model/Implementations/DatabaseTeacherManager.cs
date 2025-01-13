@@ -1,4 +1,5 @@
-﻿using Students.Model.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Students.Model.Interfaces;
 
 namespace Students.Model.Implementations
 {
@@ -20,7 +21,7 @@ namespace Students.Model.Implementations
 
         public IQueryable<Teacher> GetAll()
         {
-            return dbContext.Teachers.AsQueryable();
+            return dbContext.Teachers.Include(x => x.Students).AsQueryable();
         }
     }
 }

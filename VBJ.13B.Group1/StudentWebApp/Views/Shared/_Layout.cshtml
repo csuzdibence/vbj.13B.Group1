@@ -21,6 +21,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <div class="text-success">@authenticationService.EmailAddress</div>
                     <ul class="navbar-nav flex-grow-1">
                         @if (authenticationService.IsLoggedIn)
                         {

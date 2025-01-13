@@ -18,7 +18,22 @@ namespace Students.Model.Implementations
         }
 
         public bool IsLoggedIn => 
-            httpContextAccessor.HttpContext.Session.TryGetValue("email", out byte[] value);
+            httpContextAccessor.HttpContext.Session.TryGetValue("email", out byte[] _);
+
+        public string EmailAddress
+        {
+            get 
+            {
+                // Kikérjük a session-ből az email címet
+                httpContextAccessor.HttpContext.Session.TryGetValue("email", out byte[] values);
+                if (values is null)
+                {
+                    return string.Empty;
+                }
+                // Konvertálás bájt tömbből stringé
+                return Encoding.UTF8.GetString(values);
+            }
+        }
 
         public void LogOut()
         {

@@ -26,7 +26,10 @@ namespace StudentWebApp.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return View();
+            var teacher = teacherManager.GetAll().FirstOrDefault(x => x.EmailAddress == authenticationService.EmailAddress);
+
+
+            return View(teacher.Students);
         }
 
         public IActionResult Register()

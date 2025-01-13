@@ -1,3 +1,38 @@
-﻿
+﻿@model List<Student>
+
+@using Students.Model
+
 
 <h1>Köszöntelek a tanár nézeten!</h1>
+
+
+<a href="@Url.Action("Register", "Student")">Regisztrálj egy új diákot!</a>
+
+<table>
+    <thead>
+    <th>Azonosító</th>
+    <th>Vezetéknév</th>
+    <th>Keresztnév</th>
+    <th>Regisztráció dátuma</th>
+    <th>Email cím</th>
+        @* Csak akkor rakok egy headert a törlés számára, ha van egyáltalán elem *@
+        @if (Model.Any())
+        {
+        <th>Törlés</th>
+        }
+    </thead>
+    <tbody>
+        @foreach (Student student in Model)
+        {
+            string textCssClass = student.IsValid ? "success" : "danger";
+            <tr>
+                <td>@student.Id</td>
+                <td class="text-@textCssClass">@student.LastName</td>
+                <td class="text-@textCssClass">@student.FirstName</td>
+                <td>@student.DateOfRegistry</td>
+                <td>@student.EmailAddress</td>
+                <td><a href="@Url.Action("Delete", new { id = student.Id })">Törlés</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
