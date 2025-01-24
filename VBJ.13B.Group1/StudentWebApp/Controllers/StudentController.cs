@@ -5,6 +5,8 @@ using Students.Model.Interfaces;
 
 namespace StudentWebApp.Controllers
 {
+    using Student.Model; 
+
     /// <summary>
     /// Controller a tanulókhoz kapcsolódó végpontokhoz
     /// </summary>

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Students.Model\Students.Model.csproj" />
+    <ProjectReference Include="..\Student.Model\Student.Model.csproj" />
   </ItemGroup>
 
 </Project>

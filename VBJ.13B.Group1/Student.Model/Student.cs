@@ -1,6 +1,10 @@
+<<<<<<<< Updated upstream:VBJ.13B.Group1/Students.Model/Student.cs
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Students.Model
+========
+﻿namespace Student.Model
+>>>>>>>> Stashed changes:VBJ.13B.Group1/Student.Model/Student.cs
 {
     /// <summary>
     /// Ez az osztály egy tanulót reprezentál.
