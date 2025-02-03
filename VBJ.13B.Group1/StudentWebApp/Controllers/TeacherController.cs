@@ -32,6 +32,12 @@ namespace StudentWebApp.Controllers
             return View(teacher.Students);
         }
 
+        [Route("Teacher/GetTeachers")]
+        public List<Teacher> GetTeachers()
+        {
+            return teacherManager.GetAll().ToList();
+        }
+
         public IActionResult Register()
         {
             return View();

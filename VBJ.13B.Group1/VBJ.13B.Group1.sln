@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentWebApp", "StudentWeb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Students.Model", "Students.Model\Students.Model.csproj", "{995349B4-D339-45B1-A525-BFDB45B4DE3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Practice", "UnitTest.Practice\UnitTest.Practice.csproj", "{3CD60C3A-58F3-4579-9ECC-E7618C96DFCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{995349B4-D339-45B1-A525-BFDB45B4DE3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD60C3A-58F3-4579-9ECC-E7618C96DFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD60C3A-58F3-4579-9ECC-E7618C96DFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD60C3A-58F3-4579-9ECC-E7618C96DFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD60C3A-58F3-4579-9ECC-E7618C96DFCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

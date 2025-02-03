@@ -5,6 +5,7 @@ namespace Students.Model.Implementations
 {
     public class DatabaseTeacherManager : ITeacherManager
     {
+        // Osztály függőség -> unit tesztelhetőségben ez bad practice
         private StudentDbContext dbContext;
 
         public DatabaseTeacherManager(StudentDbContext dbContext)

@@ -44,7 +44,7 @@ namespace Students.Model
         public int TeacherId { get; set; }
 
         // Navigációs tulajdonság -> vissza lehet navigálni a tanárra a diákról
-        public Teacher Teacher { get; set; } = null!;
+        //public virtual Teacher Teacher { get; set; } = null!;
 
         public override string ToString()
         {

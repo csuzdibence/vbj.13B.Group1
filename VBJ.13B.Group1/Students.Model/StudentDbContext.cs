@@ -12,16 +12,16 @@ namespace Students.Model
         {
             // 1 darab kapcsolat Teacher - Student 1-N kapcsolat
 
-            // Egy tanárnak
-            modelBuilder.Entity<Teacher>()
-                // Lehetnek diákjai
-                .HasMany(teacher => teacher.Students)
-                // Minden diáknak egy tanára van
-                .WithOne(student => student.Teacher)
-                // Van egy idegen kulcsa, méghozzá a TeacherId
-                .HasForeignKey(student => student.TeacherId)
-                // Kötelező megadni
-                .IsRequired();
+            //// Egy tanárnak
+            //modelBuilder.Entity<Teacher>()
+            //    // Lehetnek diákjai
+            //    .HasMany(teacher => teacher.Students)
+            //    // Minden diáknak egy tanára van
+            //    .WithOne(student => student.Teacher)
+            //    // Van egy idegen kulcsa, méghozzá a TeacherId
+            //    .HasForeignKey(student => student.TeacherId)
+            //    // Kötelező megadni
+            //    .IsRequired();
         }
 
         // Örökölve van a DbContext osztály -> EF
