@@ -2,7 +2,7 @@
 
 namespace Students.Model
 {
-    public class NameLengthValidator : IStudentValidator
+    public class NameLengthValidator : INameLengthValidator
     {
         public bool ValidateStudent(Student student)
         {

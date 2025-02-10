@@ -4,10 +4,10 @@ namespace Students.Model
 {
     public class NameAndEmailValidator : IStudentValidator
     {
-        NameLengthValidator nameValidator;
-        EmailDomainValidator emailValidator;
+        INameLengthValidator nameValidator;
+        IEmailDomainValidator emailValidator;
 
-        public NameAndEmailValidator(NameLengthValidator nameValidator, EmailDomainValidator emailValidator)
+        public NameAndEmailValidator(INameLengthValidator nameValidator, IEmailDomainValidator emailValidator)
         {
             this.nameValidator = nameValidator;
             this.emailValidator = emailValidator;

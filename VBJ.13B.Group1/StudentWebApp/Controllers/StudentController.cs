@@ -70,5 +70,11 @@ namespace StudentWebApp.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [Route("api/Students")]
+        public List<Student> ReadStudents()
+        {
+            return studentManager.ReadStudents();
+        }
     }
 }

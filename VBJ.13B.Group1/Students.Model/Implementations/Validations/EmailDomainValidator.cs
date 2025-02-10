@@ -2,7 +2,7 @@
 
 namespace Students.Model
 {
-    public class EmailDomainValidator : IStudentValidator
+    public class EmailDomainValidator : IEmailDomainValidator
     {
         private const string domainName = "@vbjnet.hu";
 

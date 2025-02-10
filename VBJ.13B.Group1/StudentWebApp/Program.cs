@@ -34,7 +34,9 @@ builder.Services.AddScoped<IEncryptService, SHA256EncryptService>();
 builder.Services.AddScoped<IStudentManager, DatabaseStudentManager>();
 builder.Services.AddScoped<ITeacherManager, DatabaseTeacherManager>();
 builder.Services.AddSingleton<IStudentValidator, NameLengthValidator>();
+builder.Services.AddSingleton<INameLengthValidator, NameLengthValidator>();
 builder.Services.AddSingleton<IStudentValidator, EmailDomainValidator>();
+builder.Services.AddSingleton<IEmailDomainValidator, EmailDomainValidator>();
 builder.Services.AddSingleton<IStudentValidator, RecentRegistryValidator>();
 builder.Services.AddSingleton<IEverythingValidator, EverythingValidator>();
 
